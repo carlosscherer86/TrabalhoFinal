@@ -1,0 +1,130 @@
+<ui:composition template="/WEB-INF/template/header.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:pr="http://primefaces.org/ui">
+	<ui:define name="conteudo">
+		<title>Detalhes</title>
+		<section id="form">
+			<h:body
+				onload="geocode('#{tbMatchBean.match.tbOferta.tbEnderecos[0].nmeCidade}', '#{tbMatchBean.match.tbOferta.tbEnderecos[0].nmeBairro}','#{tbMatchBean.match.tbOferta.tbEnderecos[0].nmeEndereco}', '#{tbMatchBean.match.tbOferta.tbEnderecos[0].nmeCep}', '#{tbMatchBean.match.tbOferta.tbEnderecos[0].nmeNumero}')">
+				<h:form id="mapa">
+					<!--  Modal content for the mixer image example -->
+					<div class="modal fade pop-up-1" tabindex="-1" role="dialog"
+						aria-labelledby="myLargeModalLabel-1" aria-hidden="true"
+						id="localizacao"
+						onshow="geocode('#{tbMatchBean.match.tbOferta.tbEnderecos[0].nmeCidade}', '#{tbMatchBean.match.tbOferta.tbEnderecos[0].nmeBairro}','#{tbMatchBean.match.tbOferta.tbEnderecos[0].nmeEndereco}', '#{tbMatchBean.match.tbOferta.tbEnderecos[0].nmeCep}', '#{tbMatchBean.match.tbOferta.tbEnderecos[0].nmeNumero}')">
+						<div class="modal-dialog modal-lg">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal"
+										aria-hidden="true">×</button>
+									<h4 class="modal-title" id="myLargeModalLabel-1">Localização</h4>
+								</div>
+								<div class="modal-body">
+									<div>
+										<pr:gmap id="geoGmap" widgetVar="geoMap"
+											center="#{geocodeView.centerGeoMap}" zoom="17" type="ROADMAP"
+											model="#{geocodeView.geoModel}" style="height:530px">
+											<pr:ajax event="geocode" listener="#{geocodeView.onGeocode}"
+												update="mapa:geoGmap" />
+										</pr:gmap>
+									</div>
+								</div>
+							</div>
+							<!-- /.modal-content -->
+						</div>
+						<!-- /.modal-dialog -->
+					</div>
+					<!-- /.modal mixer image -->
+
+					<!--  Modal content for the mixer image example -->
+					<div class="modal fade" tabindex="-1" role="dialog"
+						aria-labelledby="myLargeModalLabel-1" aria-hidden="true"
+						id="galeria">
+						<div class="modal-dialog modal-lg">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal"
+										aria-hidden="true">×</button>
+									<h4 class="modal-title" id="myLargeModalLabel-1">Imagens</h4>
+								</div>
+								<div class="modal-body" style="text-align: center;">
+									<div>
+										<img src="" alt="" style="height:300px;" id="imagemModal"/>
+									</div>
+								</div>
+							</div>
+							<!-- /.modal-content -->
+						</div>
+						<!-- /.modal-dialog -->
+					</div>
+					<!-- /.modal mixer image -->
+				</h:form>
+				<div class="container">
+					<div class="col-md-12">
+						<div style="width: 1200px">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h3 class="panel-title">
+										<strong>Detalhes do Anúncio</strong>
+									</h3>
+								</div>
+								<div class="panel-body">
+
+									<div class="container">
+										<!--/register-req-->
+										<h:form id="detalhe">
+											<div class="form-group">
+												<div class="col-sm-7">
+													<img src="imagem_produto/#{tbMatchBean.match.tbOferta.tbImagems[0].nmeImagem}"
+														alt="" style="height: 250px; cursor: pointer;"
+														href="#galeria" data-toggle="modal"
+														title="Clique para visualizar imagem" onclick="atualizaImagem(this.src)"/>
+
+													<!-- Bottom switcher of slider -->
+													<ui:repeat var="imagem" value="#{tbMatchBean.match.tbOferta.tbImagems}">
+														<ul class="hide-bullets">
+															<li class="col-sm-2"><a class="thumbnail"
+																id="carousel-selector-0"> <img
+																	src="imagem_produto/#{imagem.nmeImagem}"
+																	href="#galeria" data-toggle="modal"
+																	title="Clique para visualizar imagem"
+																	style="cursor: pointer;" onclick="atualizaImagem(this.src)"/>
+															</a></li>
+														</ul>
+													</ui:repeat>
+
+
+												</div>
+												<div class="col-sm-5"></div>
+												<h2>#{tbMatchBean.match.tbOferta.nmeDescricao}</h2>
+												<h3>Unidades: 
+													#{tbMatchBean.match.tbOferta.numQuantidade}</h3>
+												<h3>R$ #{tbMatchBean.match.tbOferta.vlrUnidade}</h3>
+												<h4>#{tbMatchBean.match.tbOferta.tbEnderecos[0].nmeCidade} - #{tbMatchBean.match.tbOferta.tbEnderecos[0].nmeEndereco}</h4>
+												<div class="form-group">
+													<div class="col-sm-2 pull-right">
+														<h:commandButton class="btn btn-primary btn-block"
+															action="#{tbInteracaoBean.interacaoUsurioOferta(tbMatchBean.match)}"
+															value="Enviar Email" />
+													</div>
+													<div class="col-sm-2 pull-right">
+														<button class="btn btn-default btn-block"
+															href="#localizacao" data-toggle="modal">localização</button>
+													</div>
+												</div>
+											</div>
+										</h:form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</h:body>
+		</section>
+	</ui:define>
+</ui:composition>

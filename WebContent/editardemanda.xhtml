@@ -1,0 +1,93 @@
+<ui:composition template="/WEB-INF/template/header.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:pr="http://primefaces.org/ui">
+	<ui:define name="conteudo">
+		<title>Edição de Demandas</title>
+		<section id="form">
+			
+				<div class="container">
+					<div class="col-md-12">
+						<div class="modal-dialog" style="width: 800px">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h3 class="panel-title">
+										<strong>Editar Demandas </strong>
+									</h3>
+								</div>
+								<div class="panel-body">
+									<h:form id="cadastro">
+										<pr:growl id="msgs" showDetail="false" showSummary="true" />
+										<!-- Text input-->
+										<div class="form-group">
+
+											<div class="col-sm-12">
+												<label for="textinput">Demandas</label>
+												<h:selectOneMenu id="categoria"
+													value="#{tbDemandaBean.codigoCat}" class="form-control"
+													p:required="true">
+													<f:selectItem noSelectionOption="true"
+														itemLabel="-- Selecione a Categoria --" />
+													<f:selectItems value="#{tbDemandaBean.categorias}"
+														var="item" itemLabel="#{item.nmeNome}"
+														itemValue="#{item.pkCodCategoria}" />
+												</h:selectOneMenu>
+											</div>
+										</div>
+										<!-- Text input-->
+										<div class="form-group">
+
+											<div class="col-sm-6">
+												<label for="textinput">Valor Mínimo</label>
+												<pr:inputText id="ValorMin" p:placeholder="Valor Mínimo"
+													value="#{tbDemandaBean.demanda.vlrMin}"
+													class="form-control" p:required="true" />
+											</div>
+
+
+											<div class="col-sm-6">
+												<label for="textinput">Valor Máximo</label>
+												<pr:inputText id="valorMax" p:placeholder="Valor Máximo"
+													value="#{tbDemandaBean.demanda.vlrMax}"
+													class="form-control" p:required="true" />
+											</div>
+										</div>
+
+										<!-- Text input-->
+										<div class="form-group">
+											<div class="col-sm-12">
+												<label for="textinput">Descrição</label>
+												<pr:inputTextarea id="descricao" p:placeholder="Descrição"
+													value="#{tbDemandaBean.demanda.nmeDescricao}"
+													class="form-control" p:required="true" />
+											</div>
+										</div>
+
+
+										<!-- Text input-->
+										<div class="form-group">
+											<div class="col-sm-6"></div>
+										</div>
+
+										<div class="form-group">
+											<div class="col-sm-2 pull-right">
+												<h:commandButton class="btn btn-primary btn-block"
+													action="#{tbDemandaBean.editarDemanda}" value="Salvar" />
+											</div>
+											<div class="col-sm-2 pull-right">
+												<h:commandButton href="login.xhtml"
+													class="btn btn-default btn-block" action="#{tbDemandaBean.cancelarDemanda}" value="Cancelar"/>
+											</div>
+										</div>
+									</h:form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+		</section>
+	</ui:define>
+</ui:composition>

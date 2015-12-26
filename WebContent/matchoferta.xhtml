@@ -1,0 +1,196 @@
+<ui:composition template="/WEB-INF/template/header.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:pr="http://primefaces.org/ui">
+	<ui:define name="conteudo">
+		<title>Minhas Oferta</title>
+		<section id="form">
+			<div class="container">
+				<div class="row">
+					<div>
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h3 class="panel-title">
+									<strong>Minhas Oferta</strong>
+								</h3>
+								<span class="pull-right"> <!-- Tabs -->
+									<ul class="nav panel-tabs">
+										<li class="active"><a href="#tab1" data-toggle="tab">Venda</a></li>
+										<li><a href="#tab2" data-toggle="tab">Locação</a></li>
+										<li><a href="#tab3" data-toggle="tab">Doação</a></li>
+									</ul>
+								</span>
+							</div>
+							<div class="panel-body">
+								<div class="tab-content">
+									<div class="tab-pane active" id="tab1">
+										<h:form id="venda">
+											<pr:growl id="msgs" showDetail="true" showSummary="true" />
+											<div class="container-fluid"
+												style="background-color: #e8e8e8">
+												<div class="container-pad" id="property-listings">
+													<div class="row">
+														<ui:repeat var="Oferta"
+															value="#{tbOfertaBean.ofertasVenda}">
+															<div class="col-sm-6">
+																<!-- Begin Listing: 209 CHESTNUT HILL AVE-->
+																<div
+																	class="brdr bgc-fff pad-10 box-shad btm-mrg-20 property-listing">
+																	<div class="media">
+																		<img class="pull-left"
+																			src="imagem_produto/#{Oferta.tbImagems[0].nmeImagem}" style="height: 120px; width: 140px;"/>
+
+																		<div class="media-body fnt-smaller">
+																			<a href="#" target="_parent"></a>
+
+																			<h4 class="media-heading">
+																				<a target="_parent">R$
+																					#{Oferta.vlrUnidade} <small
+																					class="pull-right">#{Oferta.tbCategoria.nmeNome}
+																						-
+																						#{Oferta.tbTipoOferta.nmeDescricaoTipoOferta}</small>
+																				</a>
+																			</h4>
+
+
+																			<ul class="list-inline mrg-0 btm-mrg-10 clr-535353">
+																				<li>#{Oferta.numQuantidade} unidades</li>
+																			</ul>
+
+																			<p class="hidden-xs">#{Oferta.nmeDescricao}</p>
+																			<div class="col-sm-6 pull-right">
+																				<h:commandButton class="btn btn-primary btn-block"
+																					action="#{tbOfertaBean.buscarDemanda}"
+																					value="Buscar Demandas" />
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																<!-- End Listing-->
+															</div>
+														</ui:repeat>
+													</div>
+													<!-- End row -->
+												</div>
+												<!-- End container -->
+											</div>
+										</h:form>
+									</div>
+									<div class="tab-pane" id="tab2">
+										<h:form id="locacao">
+											<pr:growl id="msgs" showDetail="true" showSummary="true" />
+											<div class="container-fluid"
+												style="background-color: #e8e8e8">
+												<div class="container-pad" id="property-listings">
+													<div class="row">
+														<ui:repeat var="Oferta"
+															value="#{tbOfertaBean.ofertasAluguel}">
+															<div class="col-sm-6">
+																<!-- Begin Listing: 209 CHESTNUT HILL AVE-->
+																<div
+																	class="brdr bgc-fff pad-10 box-shad btm-mrg-20 property-listing">
+																	<div class="media">
+																		<img class="pull-left"
+																			src="imagem_produto/#{Oferta.tbImagems[0].nmeImagem}" style="height: 120px; width: 140px;"/>
+
+																		<div class="media-body fnt-smaller">
+																			<a href="#" target="_parent"></a>
+
+																			<h4 class="media-heading">
+																				<a target="_parent">R$
+																					#{Oferta.vlrUnidade} <small
+																					class="pull-right">#{Oferta.tbCategoria.nmeNome}
+																						-
+																						#{Oferta.tbTipoOferta.nmeDescricaoTipoOferta}</small>
+																				</a>
+																			</h4>
+
+
+																			<ul class="list-inline mrg-0 btm-mrg-10 clr-535353">
+																				<li>#{Oferta.numQuantidade} unidades</li>
+																			</ul>
+
+																			<p class="hidden-xs">#{Oferta.tbOferta.nmeDescricao}</p>
+																			<div class="col-sm-6 pull-right">
+																				<h:commandButton class="btn btn-primary btn-block"
+																					action="#{tbOfertaBean.buscarDemanda}"
+																					value="Buscar Demandas" />
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																<!-- End Listing-->
+															</div>
+														</ui:repeat>
+													</div>
+													<!-- End row -->
+												</div>
+												<!-- End container -->
+											</div>
+										</h:form>
+									</div>
+									<div class="tab-pane" id="tab3">
+										<h:form id="doacao">
+											<pr:growl id="msgs" showDetail="true" showSummary="true" />
+											<div class="container-fluid"
+												style="background-color: #e8e8e8">
+												<div class="container-pad" id="property-listings">
+													<div class="row">
+														<ui:repeat var="Oferta"
+															value="#{tbOfertaBean.ofertasDoacao}">
+															<div class="col-sm-6">
+																<!-- Begin Listing: 209 CHESTNUT HILL AVE-->
+																<div
+																	class="brdr bgc-fff pad-10 box-shad btm-mrg-20 property-listing">
+																	<div class="media">
+																		<img class="pull-left"
+																			src="imagem_produto/#{Oferta.tbImagems[0].nmeImagem}" style="height: 120px; width: 140px;"/>
+
+																		<div class="media-body fnt-smaller">
+																			<a href="#" target="_parent"></a>
+
+																			<h4 class="media-heading">
+																				<a target="_parent">R$
+																					#{Oferta.vlrUnidade} <small
+																					class="pull-right">#{Oferta.tbCategoria.nmeNome}
+																						-
+																						#{Oferta.tbTipoOferta.nmeDescricaoTipoOferta}</small>
+																				</a>
+																			</h4>
+
+
+																			<ul class="list-inline mrg-0 btm-mrg-10 clr-535353">
+																				<li>#{Oferta.numQuantidade} unidades</li>
+																			</ul>
+
+																			<p class="hidden-xs">#{Oferta.nmeDescricao}</p>
+																			<div class="col-sm-6 pull-right">
+																				<h:commandButton class="btn btn-primary btn-block"
+																					action="#{tbOfertaBean.buscarDemanda}"
+																					value="Buscar Demandas" />
+																			</div>
+																		</div>
+																	</div>
+																</div>
+																<!-- End Listing-->
+															</div>
+														</ui:repeat>
+													</div>
+													<!-- End row -->
+												</div>
+												<!-- End container -->
+											</div>
+										</h:form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</ui:define>
+</ui:composition>

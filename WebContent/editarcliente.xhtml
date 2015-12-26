@@ -1,0 +1,164 @@
+<ui:composition template="/WEB-INF/template/header.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:pr="http://primefaces.org/ui">
+	<ui:define name="conteudo">
+		<title>Edição de Cliente</title>
+		<section id="form">
+			<h:body onload="#{tbPessoaFisicaBean.carregaCliente()}">
+				<div class="container">
+					<div class="col-md-10">
+						<div class="modal-dialog" style="width: 1100px">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h3 class="panel-title">
+										<strong>Edição de Cliente </strong>
+									</h3>
+								</div>
+								<div class="panel-body">
+									<h:form id="cadastro">
+										<!-- Text input-->
+										<div class="form-group">
+
+											<div class="col-sm-6">
+												<label for="textinput">Nome</label>
+												<pr:inputText id="nome" p:placeholder="Nome"
+													value="#{tbPessoaFisicaBean.pessoaFisica.nmeNome}"
+													class="form-control" p:required="true" />
+											</div>
+
+											<div class="col-sm-6">
+												<label for="textinput">Sobrenome</label>
+												<pr:inputText id="sobrenome" p:placeholder="Sobrenome"
+													value="#{tbPessoaFisicaBean.pessoaFisica.nmeSobrenome}"
+													class="form-control" p:required="true" />
+											</div>
+										</div>
+
+
+										<!-- Text input-->
+										<div class="form-group">
+											<div class="col-sm-12">
+												<label for="textinput">E-mail</label>
+												<pr:inputText id="email" p:placeholder="Email"
+													value="#{tbPessoaFisicaBean.pessoaFisica.nmeEmail}"
+													class="form-control" p:required="true" p:type="email">
+													<f:ajax event="blur" execute="@this"
+														listener="#{tbPessoaFisicaBean.validaEmail(false)}"
+														render="emailInvalido email" />
+												</pr:inputText>
+											</div>
+										</div>
+
+										<!-- Text input-->
+										<div class="form-group">
+											<div class="col-sm-12">
+												<label for="textinput">Endereço</label>
+												<pr:inputText id="endereco" p:placeholder="Endereço"
+													value="#{tbPessoaFisicaBean.pessoaFisica.nmeEndereco}"
+													class="form-control" p:required="true" />
+											</div>
+										</div>
+
+										<!-- Text input-->
+										<div class="form-group">
+
+											<div class="col-sm-6">
+												<label for="textinput">Bairro</label>
+												<pr:inputText id="bairro" p:placeholder="Bairro"
+													value="#{tbPessoaFisicaBean.pessoaFisica.nmeBairro}"
+													class="form-control" p:required="true" />
+											</div>
+
+
+											<div class="col-sm-6">
+												<label for="textinput">Cidade</label>
+												<pr:inputText id="cidade" p:placeholder="Cidade"
+													value="#{tbPessoaFisicaBean.pessoaFisica.nmeCidade}"
+													class="form-control" p:required="true" />
+											</div>
+										</div>
+
+										<!-- Text input-->
+										<div class="form-group">
+
+											<div class="col-sm-6">
+												<label for="textinput">Número</label>
+												<pr:inputText id="numero" p:placeholder="Número"
+													value="#{tbPessoaFisicaBean.pessoaFisica.nmeNumero}"
+													class="form-control" p:required="true" />
+											</div>
+
+											<div class="col-sm-6">
+												<label for="textinput">Cep</label>
+												<pr:inputMask mask="99999-999" id="cep" p:placeholder="Cep"
+													value="#{tbPessoaFisicaBean.pessoaFisica.nmeCep}"
+													class="form-control" p:required="true" maxlength="9"></pr:inputMask>
+											</div>
+										</div>
+
+
+										<!-- Text input-->
+										<div class="form-group">
+											<div class="col-sm-6">
+												<label for="textinput">Complemento</label>
+												<pr:inputText id="complemento" p:placeholder="Complemento"
+													value="#{tbPessoaFisicaBean.pessoaFisica.nmeComplemento}"
+													class="form-control" p:required="true" />
+											</div>
+											<div class="col-sm-6">
+												<label for="textinput">UF</label>
+												<h:selectOneMenu id="uf" value="#{tbPessoaFisicaBean.codUf}"
+													class="form-control" p:required="true">
+													<f:selectItem itemValue="" noSelectionOption="true"
+														itemLabel="-- Selecione um Estado --" />
+													<f:selectItems value="#{tbPessoaFisicaBean.UFs}" var="item"
+														itemLabel="#{item.nmeAbrev}" itemValue="#{item.pkCodUf}" />
+												</h:selectOneMenu>
+											</div>
+										</div>
+
+
+										<!-- Text input-->
+										<div class="form-group">
+											<div class="col-sm-6">
+												<label for="textinput">Data de nascimento</label>
+												<pr:inputMask mask="99/99/9999" id="dataNascimento"
+													p:placeholder="Data de nascimento"
+													value="#{tbPessoaFisicaBean.pessoaFisica.dtaNascimento}"
+													class="form-control" p:required="true" />
+											</div>
+										</div>
+
+										<!-- Text input-->
+										<div class="form-group">
+											<div class="col-sm-6"></div>
+										</div>
+
+										<div class="form-group">
+											<div class="col-sm-2 pull-right">
+												<h:commandButton class="btn btn-primary btn-block"
+													action="#{tbPessoaFisicaBean.editaPessoaFisica}"
+													value="Salvar Alterações" />
+											</div>
+											<div class="col-sm-2 pull-right">
+												<pr:link href="matchoferta.xhtml"
+													class="btn btn-default btn-block">Cancelar</pr:link>
+											</div>
+											<pr:outputLabel id="emailInvalido"
+												value="#{tbPessoaFisicaBean.emailInvalido}"
+												class="alertaUsuario" />
+										</div>
+									</h:form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</h:body>
+		</section>
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7">
+		<attributes>
+			<attribute name="owner.project.facets" value="java"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Hibernate">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+			<attribute name="owner.project.facets" value="jpt.jpa"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JSF">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+			<attribute name="owner.project.facets" value="jst.jsf"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JSTL">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+			<attribute name="owner.project.facets" value="jst.jsf"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/MySql">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+			<attribute name="owner.project.facets" value="jst.jsf"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/PrimeFace">
+		<attributes>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+			<attribute name="owner.project.facets" value="jst.jsf"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Carlos/Desktop/Java/JSFL/javax.servlet-3.0.1.jar" sourcepath="C:/Users/Carlos/.m2/repository/org/glassfish/javax.servlet/3.0.1/javax.servlet-3.0.1-sources.jar"/>
+	<classpathentry kind="con" path="org.jboss.ide.eclipse.as.classpath.core.javaee-5.0"/>
+	<classpathentry kind="lib" path="C:/Users/Carlos/Desktop/Java/org.apache.commons.io.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Carlos/Desktop/Java/mysql-connector-java-5.1.27-bin.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Carlos/Desktop/Java/commons-email-1.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Carlos/Desktop/Java/HTTPClient/commons-codec-1.9.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Carlos/Desktop/Java/HTTPClient/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Carlos/Desktop/Java/HTTPClient/fluent-hc-4.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Carlos/Desktop/Java/HTTPClient/httpclient-4.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Carlos/Desktop/Java/HTTPClient/httpclient-cache-4.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Carlos/Desktop/Java/HTTPClient/httpclient-win-4.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Carlos/Desktop/Java/HTTPClient/httpcore-4.4.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Carlos/Desktop/Java/HTTPClient/httpmime-4.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Carlos/Desktop/Java/HTTPClient/jna-4.1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Carlos/Desktop/Java/HTTPClient/jna-platform-4.1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Carlos/Desktop/Java/HTTPClient/jsoup-1.8.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Carlos/Desktop/Java/PTStemmer-2.0-Java/PTStemmer_v2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Carlos/Desktop/Java/org.annolab.tt4j-1.1.1.jar" sourcepath="C:/Users/Carlos/.m2/repository/org/annolab/tt4j/org.annolab.tt4j/1.1.1/org.annolab.tt4j-1.1.1-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Carlos/Desktop/Java/secondstring-20120620.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Carlos/Desktop/Java/simmetrics_jar_v1_6_2_d07_02_07.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Carlos/Desktop/Java/Google/gson-2.4.jar"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>

@@ -1,0 +1,94 @@
+<ui:composition template="/WEB-INF/template/header.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:pr="http://primefaces.org/ui">
+	<ui:define name="conteudo">
+		<title>Cadastro de Imagens</title>
+		<section id="form">
+			<div class="container">
+				<div class="col-md-12">
+					<div class="modal-dialog" style="width: 1200px">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h3 class="panel-title">
+									<strong>Imagens</strong>
+								</h3>
+							</div>
+							<div class="panel-body">
+								<h:form enctype="multipart/form-data" id="form1">
+									<div class="container kv-main">
+										<div class="page-header">
+											<h1>Selecione as Imagens</h1>
+										</div>
+
+										<h:inputFile id="file-0a" class="file"
+											value="#{tbImagemBean.file}" p:placeholder="Imagem"
+											validator="#{tbImagemBean.validarImagem}" />
+										<h:commandButton value="Upload" class="btn btn-primary"
+											action="#{tbImagemBean.RealizarUpload}" />
+										<pr:link href="matchoferta.xhtml" class="btn btn-success">Finalizar</pr:link>
+										<pr:growl id="messages" showDetail="false" />
+
+									</div>
+									<div class="panel-body">
+										<pr:panel id="panel1">
+											<div class="container">
+												<div class="row">
+													<div class="col-md-11">
+														<div class="table-responsive">
+															<table id="imagemTable"
+																class="table table-bordred table-striped">
+																<thead>
+																	<th>Imagem</th>
+																	<th>Titulo</th>
+																	<th>Excluir</th>
+																</thead>
+																<tbody>
+																	<ui:repeat var="imagem" value="#{tbImagemBean.imagens}">
+																		<tr>
+																			<td><img class="pull-left"
+																				src="imagem_produto/#{imagem.nmeImagem}" style="height: 110px; width: 130px;"/></td>
+																			<td>#{imagem.nmeImagem}</td>
+																			<td>
+																				<p data-placement="top" data-toggle="tooltip"
+																					title="Deletar">
+																					<h:commandLink type="button"
+																						class="btn glyphicon glyphicon-trash"
+																						data-title="Delete" data-toggle="modal"
+																						data-target="#delete">
+																						<f:ajax event="click"
+																							listener="#{tbImagemBean.carregarImagemExcluir}"
+																							render="form1:panel1" />
+																					</h:commandLink>
+																				</p>
+																			</td>
+																		</tr>
+																	</ui:repeat>
+																</tbody>
+															</table>
+															<div class="clearfix"></div>
+															<ul class="pagination pull-right">
+																<li class="active"><a href="#">1</a></li>
+																<li><a href="#">2</a></li>
+																<li><a href="#">3</a></li>
+																<li><a href="#">4</a></li>
+																<li><a href="#">5</a></li>
+															</ul>
+														</div>
+													</div>
+												</div>
+											</div>
+										</pr:panel>
+									</div>
+								</h:form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</ui:define>
+</ui:composition>

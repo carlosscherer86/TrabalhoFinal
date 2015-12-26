@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="TrabalhoFinal">
+	<provider>org.hibernate.ejb.HibernatePersistence</provider>
+	<class>modelo.TbCategoria</class>
+	<class>modelo.TbImagem</class>
+	<class>modelo.TbPessoaFisica</class>
+	<class>modelo.TbOferta</class>
+	<class>modelo.TbInteracao</class>
+	<class>modelo.TbSinonimo</class>
+	<class>modelo.TbStopWord</class>
+	<class>modelo.TbDemanda</class>
+	<class>modelo.TbTag</class>
+	<class>modelo.TbTipoOferta</class>
+	<class>modelo.TbUf</class>
+	<class>modelo.TbEndereco</class>
+	<class>modelo.TbMatch</class>
+		<properties>
+			<property name="hibernate.hbm2ddl.auto" value ="update"/>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
+			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+			<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/tcc"/>
+			<property name="hibernate.connection.username" value="root"/>
+			<property name="hibernate.connection.password" value="root"/>
+			<property name="show_sql" value="true"/>
+		</properties>
+	</persistence-unit>
+</persistence>

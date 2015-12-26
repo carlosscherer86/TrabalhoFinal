@@ -1,0 +1,119 @@
+<ui:composition template="/WEB-INF/template/header.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:pr="http://primefaces.org/ui">
+	<ui:define name="conteudo">
+		<title>Ofertas</title>
+		<section id="form">
+			<h:form>
+				<div class="container">
+					<!-- Modal -->
+					<div class="modal fade" id="danger" tabindex="-1" role="dialog"
+						aria-labelledby="myModalLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header modal-header-danger">
+									<button type="button" class="close" data-dismiss="modal"
+										aria-hidden="true">×</button>
+									<h2>Atenção!</h2>
+								</div>
+								<div class="modal-body">
+									<h3>Você deseja excluir a oferta?</h3>
+								</div>
+								<div class="modal-footer">
+									<h:commandLink type="button" class="btn btn-danger pull-left"
+										data-dismiss="modal" value="sim"
+										action="#{tbOfertaBean.excluirOferta}" />
+									<button type="button" class="btn btn-primary pull-left"
+										data-dismiss="modal">Não</button>
+								</div>
+							</div>
+							<!-- /.modal-content -->
+						</div>
+						<!-- /.modal-dialog -->
+					</div>
+					<!-- /.modal -->
+					<!-- Modal -->
+				</div>
+			</h:form>
+			<div class="container">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">
+							<strong>Ofertas</strong>
+						</h3>
+					</div>
+					<div class="panel-body">
+						<div class="container">
+							<div class="row">
+								<div class="col-md-11">
+									<div class="table-responsive">
+										<h:form id="form1">
+
+											<pr:growl id="msgs" showDetail="true" showSummary="true" />
+											<table id="categoria"
+												class="table table-bordred table-striped">
+												<thead>
+													<th>Categoria</th>
+													<th>Tipo de Oferta</th>
+													<th>Descrição</th>
+													<th>Quantidade</th>
+													<th>Valor Unidade</th>
+													<th>Editar</th>
+													<th>Excluir</th>
+												</thead>
+												<tbody>
+													<ui:repeat var="anuncio" value="#{tbOfertaBean.anuncios}">
+														<tr>
+															<td>#{anuncio.tbCategoria.nmeNome}</td>
+															<td>#{anuncio.tbTipoOferta.nmeDescricaoTipoOferta}</td>
+															<td>#{anuncio.nmeDescricao}</td>
+															<td>#{anuncio.numQuantidade}</td>
+															<td>#{anuncio.vlrUnidade}</td>
+															<td><p data-placement="top" data-toggle="tooltip"
+																	title="Editar">
+																	<h:commandLink action="#{tbOfertaBean.carregarOferta}"
+																		data-title="Edit" data-toggle="modal"
+																		data-target="#edit"
+																		class="btn glyphicon glyphicon-pencil" />
+
+
+																</p></td>
+															<td><p data-placement="top" data-toggle="modal"
+																	title="Deletar" href="#danger">
+																	<h:commandLink type="button"
+																		class="btn glyphicon glyphicon-trash"
+																		data-title="Delete" data-toggle="modal"
+																		data-target="#delete">
+																		<f:ajax event="click"
+																			listener="#{tbOfertaBean.carregarOfertaExcluir}" />
+																	</h:commandLink>
+																</p></td>
+														</tr>
+													</ui:repeat>
+												</tbody>
+											</table>
+
+
+											<div class="clearfix"></div>
+											<ul class="pagination pull-right">
+												<li class="active"><a href="#">1</a></li>
+												<li><a href="#">2</a></li>
+												<li><a href="#">3</a></li>
+												<li><a href="#">4</a></li>
+												<li><a href="#">5</a></li>
+											</ul>
+										</h:form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</ui:define>
+</ui:composition>

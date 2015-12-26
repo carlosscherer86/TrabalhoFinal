@@ -1,0 +1,54 @@
+<ui:composition template="/WEB-INF/template/header.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:pr="http://primefaces.org/ui">
+	<ui:define name="conteudo">
+		<title>Minhas Demandas</title>
+		<section id="form">
+			<div class="container">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">
+							<strong>Minhas Demandas</strong>
+						</h3>
+					</div>
+					<div class="panel-body">
+						<h:form id="cadastro">
+							<pr:growl id="msgs" showDetail="true" showSummary="true" />
+							<div class="container-fluid" style="background-color: #e8e8e8">
+								<div class="row">
+									<ui:repeat var="match" value="#{tbDemandaBean.demandas}">
+										<div class="col-sm-6">
+											<div
+												class="brdr bgc-fff pad-10 box-shad btm-mrg-20 property-listing">
+												<div class="media">
+													<div class="media-body fnt-smaller">
+														<ul class="list-inline mrg-0 btm-mrg-10 clr-535353">
+															<li>Descrição: #{match.nmeDescricao}</li>
+														</ul>
+
+														<p class="hidden-xs"></p>
+														<div class="col-sm-6 pull-right">
+															<h:commandButton class="btn btn-primary btn-block"
+																action="#{tbDemandaBean.buscarOfertas}" value="Buscar Ofertas" />
+														</div>
+													</div>
+												</div>
+											</div>
+											<!-- End Listing-->
+										</div>
+									</ui:repeat>
+									<!-- End row -->
+								</div>
+								<!-- End container -->
+							</div>
+						</h:form>
+					</div>
+				</div>
+			</div>
+		</section>
+	</ui:define>
+</ui:composition>

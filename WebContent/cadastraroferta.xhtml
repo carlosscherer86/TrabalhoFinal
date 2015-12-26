@@ -1,0 +1,114 @@
+<ui:composition template="/WEB-INF/template/header.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:pr="http://primefaces.org/ui">
+	<ui:define name="conteudo">
+		<title>Cadastro de Ofertas</title>
+		<section id="form">
+			<div class="container">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">
+								<strong>Cadastro de Ofertas </strong>
+							</h3>
+						</div>
+						<div class="panel-body">
+							<h:form id="cadastro">
+								<pr:growl id="msgs" showDetail="false" showSummary="true" />
+								<!-- Text input-->
+								<div class="form-group">
+
+									<div class="col-sm-12">
+										<label for="textinput">Categoria</label>
+										<h:selectOneMenu id="categoria"
+											value="#{tbOfertaBean.codigoCat}" class="form-control"
+											p:required="true">
+											<f:selectItem itemValue="" noSelectionOption="true"
+												itemLabel="-- Selecione a Categoria --" />
+											<f:selectItems value="#{tbOfertaBean.categorias}" var="item"
+												itemLabel="#{item.nmeNome}"
+												itemValue="#{item.pkCodCategoria}" />
+										</h:selectOneMenu>
+									</div>
+								</div>
+
+								<div class="form-group">
+
+									<div class="col-sm-12">
+										<label for="textinput">Tipo oferta</label>
+										<h:selectOneMenu id="TipoOferta"
+											value="#{tbOfertaBean.codigoTipoOferta}" class="form-control"
+											p:required="true" onchange="habilitarValor()">
+											<f:selectItem itemValue="" noSelectionOption="true"
+												itemLabel="-- Selecione o tipo de oferta --" />
+											<f:selectItems value="#{tbOfertaBean.tiposOfertas}"
+												var="item" itemLabel="#{item.nmeDescricaoTipoOferta}"
+												itemValue="#{item.pkCodTipoOferta}" />
+										</h:selectOneMenu>
+									</div>
+								</div>
+
+								<!-- Text input-->
+								<div class="form-group">
+
+									<div class="col-sm-6">
+										<label for="textinput">Quantidade</label>
+										<pr:inputText id="quantidade" p:placeholder="Quantidade"
+											value="#{tbOfertaBean.oferta.numQuantidade}"
+											class="form-control" p:required="true" />
+									</div>
+
+
+									<div class="col-sm-6">
+										<label for="textinput" id="valor" style="visibility: hidden;">Valor
+											unitário</label>
+										<pr:inputText id="valorUni" p:placeholder="Valor unitário"
+											value="#{tbOfertaBean.oferta.vlrUnidade}"
+											class="form-control" style="visibility: hidden;" />
+									</div>
+								</div>
+
+								<!-- Text input-->
+								<div class="form-group">
+									<div class="col-sm-12">
+										<label for="textinput">Descrição</label>
+										<pr:inputTextarea id="descricao" p:placeholder="Descrição"
+											value="#{tbOfertaBean.oferta.nmeDescricao}"
+											class="form-control" p:required="true" />
+									</div>
+								</div>
+
+								<!-- Text input-->
+								<div class="form-group">
+									<div class="col-sm-12">
+										<pr:selectBooleanCheckbox
+											value="#{tbOfertaBean.enderecoOferta}"
+											itemLabel="Cadastrar endereço"></pr:selectBooleanCheckbox>
+									</div>
+								</div>
+
+
+								<!-- Text input-->
+								<div class="form-group">
+									<div class="col-sm-6"></div>
+								</div>
+
+								<div class="form-group">
+									<div class="col-sm-2 pull-right">
+										<h:commandButton class="btn btn-primary btn-block"
+											action="#{tbOfertaBean.adicionaOferta}" value="Continuar" />
+									</div>
+									<div class="col-sm-2 pull-right">
+										<pr:link href="login.xhtml" class="btn btn-default btn-block">Cancelar</pr:link>
+									</div>
+								</div>
+							</h:form>
+						</div>
+					</div>
+				</div>
+		</section>
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:cadastrarcliente.xhtml"
+  PATH="cadastrarcliente.xhtml" SHAPE="240,257,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#cadastrocategoria3.xhtml"
+  PATH="/cadastrocategoria3.xhtml" SHAPE="32,353,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#cadastrocategoria3.xhtml:0" NAME="item"
+   PATH="/cadastrocategoria3.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="editarcategoria::#editarcategoria3.xhtml"
+    NAME="output" PATH="/editarcategoria3.xhtml"
+    TARGET="rules:#editarcategoria3.xhtml" TITLE="editarcategoria" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="login::#login.xhtml" NAME="output1"
+    PATH="/login.xhtml" TARGET="rules:#login.xhtml" TITLE="login" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#editarcategoria3.xhtml"
+  PATH="/editarcategoria3.xhtml" SHAPE="240,369,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#editaroferta.xhtml"
+  PATH="/editaroferta.xhtml" SHAPE="240,481,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#cadastraranuncio3.xhtml"
+  PATH="/cadastraranuncio3.xhtml" SHAPE="32,465,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#cadastraranuncio3.xhtml:0" NAME="item"
+   PATH="/cadastraranuncio3.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="editaranuncio::#editaroferta.xhtml"
+    NAME="output" PATH="/editaroferta.xhtml"
+    TARGET="rules:#editaroferta.xhtml" TITLE="editaranuncio" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#login3.xhtml" PATH="/login3.xhtml"
+  SHAPE="32,241,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#login3.xhtml:0" NAME="item"
+   PATH="/login3.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="cadastrarcliente::cadastrarcliente.xhtml"
+    NAME="output" PATH="cadastrarcliente.xhtml"
+    TARGET="rules:cadastrarcliente.xhtml" TITLE="cadastrarcliente" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#login.xhtml" PATH="/login.xhtml"
+  SHAPE="256,625,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>

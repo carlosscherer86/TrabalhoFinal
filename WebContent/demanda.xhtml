@@ -1,0 +1,83 @@
+<ui:composition template="/WEB-INF/template/header.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:pr="http://primefaces.org/ui">
+	<ui:define name="conteudo">
+		<title>Detalhes</title>
+		<section id="form">
+			<h:body
+				onload="geocode('#{tbMatchBean.match.tbDemanda.tbPessoaFisica.nmeCidade}', '#{tbMatchBean.match.tbDemanda.tbPessoaFisica.nmeBairro}','#{tbMatchBean.match.tbDemanda.tbPessoaFisica.nmeEndereco}', '#{tbMatchBean.match.tbDemanda.tbPessoaFisica.nmeCep}', '#{tbMatchBean.match.tbDemanda.tbPessoaFisica.nmeNumero}')">
+				<h:form id="mapa">
+					<!--  Modal content for the mixer image example -->
+					<div class="modal fade pop-up-1" tabindex="-1" role="dialog"
+						aria-labelledby="myLargeModalLabel-1" aria-hidden="true"
+						id="localizacao"
+						onshow="geocode('#{tbMatchBean.match.tbDemanda.tbPessoaFisica.nmeCidade}', '#{tbMatchBean.match.tbDemanda.tbPessoaFisica.nmeBairro}','#{tbMatchBean.match.tbDemanda.tbPessoaFisica.nmeEndereco}', '#{tbMatchBean.match.tbDemanda.tbPessoaFisica.nmeCep}', '#{tbMatchBean.match.tbDemanda.tbPessoaFisica.nmeNumero}')">
+						<div class="modal-dialog modal-lg">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal"
+										aria-hidden="true">×</button>
+									<h4 class="modal-title" id="myLargeModalLabel-1">Localização</h4>
+								</div>
+								<div class="modal-body">
+									<div>
+										<pr:gmap id="geoGmap" widgetVar="geoMap"
+											center="#{geocodeView.centerGeoMap}" zoom="17" type="ROADMAP"
+											model="#{geocodeView.geoModel}" style="height:530px">
+											<pr:ajax event="geocode" listener="#{geocodeView.onGeocode}"
+												update="mapa:geoGmap" />
+										</pr:gmap>
+									</div>
+								</div>
+							</div>
+							<!-- /.modal-content -->
+						</div>
+						<!-- /.modal-dialog -->
+					</div>
+				</h:form>
+				<div class="container">
+					<div class="col-md-12">
+						<div class="center-block" style="width: 800px">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h3 class="panel-title">
+										<strong>Detalhes da Demanda</strong>
+									</h3>
+								</div>
+								<div class="panel-body">
+
+									<div>
+										<!--/register-req-->
+										<h:form id="detalhe">
+											<div class="form-group">												<div class="col-sm-5"></div>
+												<h2>Descrição: #{tbMatchBean.match.tbDemanda.nmeDescricao}</h2>
+												<h3>Valor Mínimo: 
+													#{tbMatchBean.match.tbDemanda.vlrMin}</h3>
+												<h3>Valor Máximo: #{tbMatchBean.match.tbDemanda.vlrMax}</h3>
+												<div class="form-group">
+													<div class="col-sm-3 pull-right">
+														<h:commandButton class="btn btn-primary btn-block"
+															action="#{tbInteracaoBean.interacaoUsurioDemanda(tbMatchBean.match)}"
+															value="Enviar Email" />
+													</div>
+													<div class="col-sm-3 pull-right">
+														<button class="btn btn-default btn-block"
+															href="#localizacao" data-toggle="modal">localização</button>
+													</div>
+												</div>
+											</div>
+										</h:form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</h:body>
+		</section>
+	</ui:define>
+</ui:composition>
