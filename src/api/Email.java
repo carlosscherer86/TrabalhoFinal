@@ -128,7 +128,7 @@ public class Email {
 				"Sistema de Recomendação");
 		email.setSubject("Sistema de Recomendação");
 
-		String nome = "/opt/tomcat/webapps/TrabalhoFinal/imagem_produto/" + oferta.getTbImagems().get(0).getNmeImagem();
+		String nome = "C:/Users/Carlos/workspace/TrabalhoFinal/WebContent/imagem_produto/" + oferta.getTbImagems().get(0).getNmeImagem();
 		System.out.println(nome);
 		String cid2 = email.embed(new File(nome));
 
@@ -172,7 +172,7 @@ public class Email {
 				"Sistema de Recomendação");
 		email.setSubject("Sistema de Recomendação");
 
-		String nome = "/opt/tomcat/webapps/TrabalhoFinal/imagem_produto/" + oferta.getTbImagems().get(0).getNmeImagem();
+		String nome = "C:/Users/Carlos/workspace/TrabalhoFinal/WebContent/imagem_produto/" + oferta.getTbImagems().get(0).getNmeImagem();
 		System.out.println(nome);
 		String cid2 = email.embed(new File(nome));
 

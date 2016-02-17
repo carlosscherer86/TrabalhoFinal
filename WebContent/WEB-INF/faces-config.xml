@@ -3,17 +3,17 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
 	<navigation-rule>
-		<from-view-id>/login3.xhtml</from-view-id>
+		<from-view-id>/login.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>cadastrarcliente</from-outcome>
 			<to-view-id>cadastrarcliente.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
-		<from-view-id>/cadastrocategoria3.xhtml</from-view-id>
+		<from-view-id>/cadastrocategoria.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>editarcategoria</from-outcome>
-			<to-view-id>/editarcategoria3.xhtml</to-view-id>
+			<to-view-id>/editarcategoria.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 		<navigation-case>
@@ -23,7 +23,7 @@
 		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
-		<from-view-id>/cadastraranuncio3.xhtml</from-view-id>
+		<from-view-id>/cadastraranuncio.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>editaranuncio</from-outcome>
 			<to-view-id>/editaroferta.xhtml</to-view-id>

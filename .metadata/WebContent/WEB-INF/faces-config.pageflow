@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14533318906180" configfile="/TrabalhoFinal/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="cadastrocategoria3.xhtml" x="122" y="754" id="pf14533320000371" referenceLink="//@navigationRule.1/@fromViewId|" outlinks="pf14533320000372 pf14533320000373" path="/cadastrocategoria.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="editarcategoria.xhtml" id="pf14533320000377" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf14533320000372" path="/editarcategoria.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="login.xhtml" id="pf14533320000378" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf14533320000379" inlinks="pf14533320000373" path="/login.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="cadastrarcliente.xhtml" id="pf145333200003710" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf14533320000379" path="cadastrarcliente.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="cadastraranuncio.xhtml" id="pf145333201773711" referenceLink="//@navigationRule.2/@fromViewId|" outlinks="pf145333201773712" path="/cadastraranuncio.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="editaroferta.xhtml" id="pf145333201773713" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" inlinks="pf145333201773712" path="/editaroferta.xhtml"/>
+  <links id="pf14533320000372" target="pf14533320000377" source="pf14533320000371" outcome="editarcategoria" redirect="true"/>
+  <links id="pf14533320000373" target="pf14533320000378" source="pf14533320000371" outcome="login" redirect="true"/>
+  <links id="pf14533320000379" target="pf145333200003710" source="pf14533320000378" outcome="cadastrarcliente"/>
+  <links id="pf145333201773712" target="pf145333201773713" source="pf145333201773711" outcome="editaranuncio" redirect="true"/>
+</pageflow:Pageflow>

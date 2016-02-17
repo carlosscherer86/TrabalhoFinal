@@ -9,103 +9,97 @@
 		<title>Cadastro de Endereço</title>
 		<section id="form">
 			<div class="container">
-				<div class="col-md-10">
-					<div class="modal-dialog" style="width: 1100px">
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<h3 class="panel-title">
-									<strong>Cadastro de Endereço </strong>
-								</h3>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">
+							<strong>Cadastro de Endereço </strong>
+						</h3>
+					</div>
+					<div class="panel-body">
+						<h:form id="cadastro">
+							<!-- Text input-->
+							<div class="form-group">
+								<div class="col-sm-12">
+									<label for="textinput">Endereço</label>
+									<pr:inputText id="endereco" p:placeholder="Endereço"
+										value="#{tbEnderecoBean.endereco.nmeEndereco}"
+										class="form-control" p:required="true" />
+								</div>
 							</div>
-							<div class="panel-body">
-								<h:form id="cadastro">
 
-									<!-- Text input-->
-									<div class="form-group">
-										<div class="col-sm-12">
-											<label for="textinput">Endereço</label>
-											<pr:inputText id="endereco" p:placeholder="Endereço"
-												value="#{tbEnderecoBean.endereco.nmeEndereco}"
-												class="form-control" p:required="true" />
-										</div>
-									</div>
+							<!-- Text input-->
+							<div class="form-group">
 
-									<!-- Text input-->
-									<div class="form-group">
-
-										<div class="col-sm-6">
-											<label for="textinput">Bairro</label>
-											<pr:inputText id="bairro" p:placeholder="Bairro"
-												value="#{tbEnderecoBean.endereco.nmeBairro}"
-												class="form-control" p:required="true" />
-										</div>
+								<div class="col-sm-6">
+									<label for="textinput">Bairro</label>
+									<pr:inputText id="bairro" p:placeholder="Bairro"
+										value="#{tbEnderecoBean.endereco.nmeBairro}"
+										class="form-control" p:required="true" />
+								</div>
 
 
-										<div class="col-sm-6">
-											<label for="textinput">Cidade</label>
-											<pr:inputText id="cidade" p:placeholder="Cidade"
-												value="#{tbEnderecoBean.endereco.nmeCidade}"
-												class="form-control" p:required="true" />
-										</div>
-									</div>
-
-									<!-- Text input-->
-									<div class="form-group">
-
-										<div class="col-sm-6">
-											<label for="textinput">Número</label>
-											<pr:inputText id="numero" p:placeholder="Número"
-												value="#{tbEnderecoBean.endereco.nmeNumero}"
-												class="form-control" p:required="true" />
-										</div>
-
-										<div class="col-sm-6">
-											<label for="textinput">Cep</label>
-											<pr:inputMask mask="99999-999" id="cep" p:placeholder="Cep"
-												value="#{tbEnderecoBean.endereco.nmeCep}"
-												class="form-control" p:required="true" maxlength="9"></pr:inputMask>
-										</div>
-									</div>
-
-									<!-- Text input-->
-									<div class="form-group">
-										<div class="col-sm-6">
-											<label for="textinput">Complemento</label>
-											<pr:inputText id="complemento" p:placeholder="Complemento"
-												value="#{tbEnderecoBean.endereco.nmeComplemento}"
-												class="form-control" p:required="true" />
-										</div>
-
-										<div class="col-sm-6">
-											<label for="textinput">UF</label>
-											<h:selectOneMenu id="uf" value="#{tbEnderecoBean.codUf}"
-												class="form-control" p:required="true">
-												<f:selectItem itemValue="" noSelectionOption="true"
-													itemLabel="-- Selecione um Estado --" />
-												<f:selectItems value="#{tbEnderecoBean.UFs}" var="item"
-													itemLabel="#{item.nmeAbrev}" itemValue="#{item.pkCodUf}" />
-											</h:selectOneMenu>
-										</div>
-									</div>
-									
-									<!-- Text input-->
-									<div class="form-group">
-										<div class="col-sm-6"></div>
-									</div>
-
-									<div class="form-group">
-										<div class="col-sm-2 pull-right">
-											<h:commandButton class="btn btn-primary btn-block"
-												action="#{tbEnderecoBean.adicionaEndereco}"
-												value="Cadastrar" />
-										</div>
-										<div class="col-sm-2 pull-right">
-											<pr:link href="login.xhtml" class="btn btn-default btn-block">Cancelar</pr:link>
-										</div>
-									</div>
-								</h:form>
+								<div class="col-sm-6">
+									<label for="textinput">Cidade</label>
+									<pr:inputText id="cidade" p:placeholder="Cidade"
+										value="#{tbEnderecoBean.endereco.nmeCidade}"
+										class="form-control" p:required="true" />
+								</div>
 							</div>
-						</div>
+
+							<!-- Text input-->
+							<div class="form-group">
+
+								<div class="col-sm-6">
+									<label for="textinput">Número</label>
+									<pr:inputText id="numero" p:placeholder="Número"
+										value="#{tbEnderecoBean.endereco.nmeNumero}"
+										class="form-control" p:required="true" />
+								</div>
+
+								<div class="col-sm-6">
+									<label for="textinput">Cep</label>
+									<pr:inputMask mask="99999-999" id="cep" p:placeholder="Cep"
+										value="#{tbEnderecoBean.endereco.nmeCep}" class="form-control"
+										p:required="true" maxlength="9"></pr:inputMask>
+								</div>
+							</div>
+
+							<!-- Text input-->
+							<div class="form-group">
+								<div class="col-sm-6">
+									<label for="textinput">Complemento</label>
+									<pr:inputText id="complemento" p:placeholder="Complemento"
+										value="#{tbEnderecoBean.endereco.nmeComplemento}"
+										class="form-control" p:required="true" />
+								</div>
+
+								<div class="col-sm-6">
+									<label for="textinput">UF</label>
+									<h:selectOneMenu id="uf" value="#{tbEnderecoBean.codUf}"
+										class="form-control" p:required="true">
+										<f:selectItem itemValue="" noSelectionOption="true"
+											itemLabel="-- Selecione um Estado --" />
+										<f:selectItems value="#{tbEnderecoBean.UFs}" var="item"
+											itemLabel="#{item.nmeAbrev}" itemValue="#{item.pkCodUf}" />
+									</h:selectOneMenu>
+								</div>
+							</div>
+
+							<!-- Text input-->
+							<div class="form-group">
+								<div class="col-sm-6"></div>
+							</div>
+
+							<div class="form-group">
+								<div class="col-sm-2">
+									<h:commandButton class="btn btn-primary"
+										action="#{tbEnderecoBean.adicionaEndereco}" value="Cadastrar" />
+								</div>
+								<div>
+									<pr:link href="login.xhtml" class="btn btn-default">Cancelar</pr:link>
+								</div>
+							</div>
+						</h:form>
 					</div>
 				</div>
 			</div>
